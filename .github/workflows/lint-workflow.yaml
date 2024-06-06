@@ -1,0 +1,29 @@
+name: 'YAML-Format-And-Validate-Workflow'
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  yaml-workflow:
+    name: 'YAML-Validate'
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install yamllint
+      run: pip install yamllint
+
+    - name: YAML Lint
+      run: yamllint k8s-manifests/
+
+    - name: Fail if yamllint fails
+      if: ${{ failure() }}
+      run: exit 1
