@@ -13,15 +13,31 @@ Before you begin, ensure you have the following installed:
 
 ## Steps to Deploy
 
-1. **Apply HTML Pod Manifest:**
+
+1. **Create the docker Registry Key:**
+Create a secret for Docker Registry authentication.
+```bash
+kubectl create secret docker-registry myregistrykey \
+    --docker-username=username \
+    --docker-password=secret \
+    --docker-email=docker@email.com
+
+```
+
+2. **Apply HTML Pod Manifest:**
 
    Apply the HTML Pod manifest to deploy the Caddy web server pod.
 
    ```bash
    kubectl apply -f htmlpod.yaml
-   ```
-2. **Describe Pod Manifest:**
-  ```bash
+   ``
+3. **Describe Pod Manifest:**
+   Describe the pod for detailed information.
+   ```bash
   kubectl describe pods
-   ```
-
+  ``
+4. **Delete Pod Manifest:**
+If needed, delete the existing pod.
+  ```bash
+  kubectl delete pod caddy-web-server
+  ``
