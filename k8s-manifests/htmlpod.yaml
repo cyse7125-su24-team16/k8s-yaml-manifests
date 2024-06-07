@@ -3,12 +3,18 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    test: liveness-and-readiness-probes
   name: caddy-web-server
 spec:
   containers:
     - name: caddy
-      image: 118a3025/img1:latest
+      image: anu398/caddy-html:latest
+      imagePullPolicy: Always
+      env:
+        - name: STATIC_SITE_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: port-config
+              key: port
       ports:
         - containerPort: 8080
       readinessProbe:
