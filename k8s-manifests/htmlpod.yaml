@@ -20,7 +20,7 @@ spec:
       readinessProbe:
         httpGet:
           path: /
-          port: 7000
+          port: 8080
         initialDelaySeconds: 5
         periodSeconds: 5
       livenessProbe:
@@ -38,4 +38,3 @@ spec:
         failureThreshold: 30
   imagePullSecrets:
     - name: myregistrykey
-
