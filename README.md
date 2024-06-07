@@ -13,8 +13,7 @@ Before you begin, ensure you have the following installed:
 
 ## Steps to Deploy
 
-
-1. **Create the docker Registry Key:**
+- Create the docker Registry Key:
 Create a secret for Docker Registry authentication.
 ```bash
 kubectl create secret docker-registry myregistrykey \
@@ -37,37 +36,10 @@ kubectl version --output=yaml
 kubectl config view
 ```
 
-- To run a Pod
-
-```bash
-kubectl run <pod name> --image <image name>
-kubectl run myngix --image nginx
-```
-
-- To create a deployment
-
-```bash
-kubectl create deployment <name> --image <image name>
-kubectl create deployment mynginx --image nginx
-```
-
-- To scale the deployment (increase replicas)
-
-```
-kubectl scale deployment <deployment name> --replicas <no of replicas>
-kubectl scale deployment mynginx --replicas 2
-```
-
 - To check all running services, pods, etc.
 
 ```bash
 kubectl get all
-```
-
-- To get the get details from the a particular namespace
-
-```bash
-kubectl get all -n <namespace name>
 ```
 
 - To get the internal components running
@@ -93,35 +65,10 @@ kubectl get pods
 // with extra details
 kubectl get pods -o wide
 ```
-
-- To check all the running node.
-
-```bash
-kubectl get nodes
-```
-
-- To check all the replicaset
-
-```bash
-kubectl get replicaset
-```
-
-- To check all the namespaces
-
-```bash
-kubectl get namespaces
-```
-
 - To get all the API resources
 
 ```
 kubectl api-resources
-```
-
-- To delete the deployment
-
-```bash
-kubectl delete deployment <deployment-name>
 ```
 
 - To delete the pods 
@@ -163,20 +110,8 @@ kube describe pod <pod -name>
 kubectl get pods -w
 ```
 
-- To check the cluster are avilable
-
-```
-kube config get-contexts
-```
-
 - To delete all the pods
 ```
 kubectl delete pods --all
-```
-
-- Apply to a particular namespace
-
-```bash
-kubectl apply -f <config file name> --namespace=<namespace name>
 ```
 
