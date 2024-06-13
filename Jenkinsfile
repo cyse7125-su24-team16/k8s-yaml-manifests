@@ -77,7 +77,7 @@ pipeline {
         }
     }
  
-    }
+    
    
     post {
         always {
@@ -89,5 +89,4 @@ pipeline {
             echo 'YAML linting failed. Please check the linting errors and fix them.'
         }
     }
-}
- 
+} 
