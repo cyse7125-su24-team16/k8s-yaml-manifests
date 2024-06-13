@@ -1,4 +1,4 @@
-# k8s-yaml-manifests:
+# k8s-yaml-manifests
 # Deploying Caddy Web Server on Kubernetes
 
 This repository contains YAML manifests and instructions to deploy a Caddy web server on Kubernetes.
